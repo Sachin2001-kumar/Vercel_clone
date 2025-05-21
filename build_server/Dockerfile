@@ -21,6 +21,15 @@ WORKDIR /home/app
 
 # copy
 COPY main.sh main.sh
+COPY script.js script.js
+COPY package*.json .
+
+RUN npm install
+
+# Executable premission given to them
+RUN chmod +x main.sh
+RUN chmod +x script.js
+
 
 # Entry Point or the executable file 
 ENTRYPOINT [ "/home/app/main.sh" ]
